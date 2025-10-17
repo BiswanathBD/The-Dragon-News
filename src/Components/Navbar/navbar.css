@@ -1,0 +1,8 @@
+.nav a:hover {
+  color: #d72050;
+}
+.nav .active {
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #d72050;
+}
