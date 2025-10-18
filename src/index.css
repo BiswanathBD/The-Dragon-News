@@ -8,3 +8,8 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+.news-category .active{
+  background-color: #E7E7E7;
+  color: #403F3F;
+  font-weight: 600;
+}
