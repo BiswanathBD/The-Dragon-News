@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useParams } from "react-router";
 import NewsCard from "../Components/NewsCard";
+import useFetchNews from "../Hooks/useFetchNews";
 
 const NewsSection = () => {
   const { id } = useParams();
-  const data = useLoaderData();
+  const { news } = useFetchNews();
   const [categoryNews, setCategoryNews] = useState([]);
 
   useEffect(() => {
-    const newsByCategory = data.filter((news) => news.category_id == id);
+    const newsByCategory = news.filter((news) => news.category_id == id);
     if (newsByCategory.length === 0) {
       if (id == 1) {
-        const brakingNews = data.filter(
+        const brakingNews = news.filter(
           (news) => news.others.is_today_pick === true
         );
         setCategoryNews(brakingNews);
       } else {
-        setCategoryNews(data);
+        setCategoryNews(news);
       }
     } else {
       setCategoryNews(newsByCategory);
     }
-  }, [data, id]);
+  }, [news, id]);
 
   return (
     <div>
