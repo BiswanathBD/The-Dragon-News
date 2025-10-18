@@ -25,13 +25,6 @@ export const router = createBrowserRouter([
           },
         ],
       },
-
-      {
-        path: "/details/:newsId",
-        loader: () => fetch("/news.json"),
-        Component: NewsDetails,
-      },
-
       {
         path: "/about",
         Component: About,
@@ -41,5 +34,11 @@ export const router = createBrowserRouter([
         Component: Career,
       },
     ],
+  },
+
+  {
+    path: "/details/:newsId",
+    loader: () => fetch("/news.json"),
+    Component: NewsDetails,
   },
 ]);
